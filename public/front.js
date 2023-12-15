@@ -67,3 +67,9 @@ function renderPosts(arr) {
   });
   els.postsContainer.innerHTML = HtmlArr.join('');
 }
+
+// nusitaikyti i search input
+// paimti jo value
+// mygtuko paspaudimu siusti fetch
+// GET http://localhost:3000/posts/search?q=james
+// gavus atsakyma sugeneruojam postus su renderPosts

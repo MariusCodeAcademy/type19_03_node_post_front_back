@@ -4,7 +4,7 @@ GET http://localhost:3000/
 GET http://localhost:3000/posts
 
 ### Search
-GET http://localhost:3000/posts/search?q=buble
+GET http://localhost:3000/posts/search?q=james
 
 ### Get signle post
 GET http://localhost:3000/posts/5
