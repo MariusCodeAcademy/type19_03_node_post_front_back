@@ -38,4 +38,28 @@ function addNewPost(newPostObj) {
 // sukurti nauja posta su forma ir gauti atsakyma
 
 // sugeneruoti esamus postus htmle
-function renderPosts(postsArr) {}
+function getPosts() {
+  fetch(`${API_URL}/posts`)
+    .then((resp) => resp.json())
+    .then((data) => {
+      console.log('data ===', data);
+      renderPosts(data);
+    })
+    .catch((error) => {
+      console.warn('ivyko klaida:', error);
+    });
+}
+getPosts();
+
+function renderPosts(arr) {
+  const HtmlArr = arr.map((post) => {
+    return `
+    <div class="post">
+      <h3>${post.title}</h3>
+      <p>${post.content}</p>
+    </div>
+    <hr>
+  `;
+  });
+  els.postsContainer.innerHTML = HtmlArr.join('');
+}
