@@ -42,8 +42,17 @@ app.get('/', (req, res) => {
 });
 
 // GET - /posts - grazins visus postus
+app.get('/posts', (req, res) => {
+  res.json(postsArr);
+});
+// GET - /posts?id=5 - grazins post su id 5
 
 // GET - posts/dates - grazins visas postu datas masyve
+app.get('/posts/dates', (req, res) => {
+  const datesArr = postsArr.map((pObj) => pObj.date);
+  console.log('datesArr ===', datesArr);
+  res.json(datesArr);
+});
 
 // app Listen
 app.listen(port, () => {
