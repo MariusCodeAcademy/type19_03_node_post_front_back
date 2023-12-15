@@ -37,6 +37,7 @@ let lastPostId = 4;
 
 // Middleware
 app.use(morgan('dev'));
+app.use(cors());
 app.use(express.json()); // for parsing application/json
 
 // Routes
