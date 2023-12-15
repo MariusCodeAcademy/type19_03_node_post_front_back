@@ -33,10 +33,24 @@ const postsArr = [
   },
 ];
 
+let lastPostId = 4;
+
 // Middleware
 app.use(morgan('dev'));
+app.use(express.json()); // for parsing application/json
 
 // Routes
+app.post('/posts', (request, response) => {
+  const newPostObj = request.body;
+  console.log(newPostObj);
+  // newPostObj.id = ++lastPostId;
+  postsArr.push({
+    id: ++lastPostId,
+    ...newPostObj,
+  });
+  response.json(postsArr);
+});
+
 app.get('/', (req, res) => {
   res.json({ msg: 'home route' });
 });
