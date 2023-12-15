@@ -5,6 +5,34 @@ const morgan = require('morgan');
 const { port } = require('./config');
 const app = express();
 
+// Database
+const postsArr = [
+  {
+    id: 1,
+    title: 'Post 1',
+    content: 'Body of post 1',
+    date: '2020-01-01',
+  },
+  {
+    id: 2,
+    title: 'Post 2',
+    content: 'Body of post 2',
+    date: '2020-01-02',
+  },
+  {
+    id: 3,
+    title: 'Post 3',
+    content: 'Body of post 3',
+    date: '2020-01-03',
+  },
+  {
+    id: 4,
+    title: 'Post 4',
+    content: 'Body of post 4',
+    date: '2020-01-04',
+  },
+];
+
 // Middleware
 app.use(morgan('dev'));
 
@@ -12,6 +40,10 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
   res.json({ msg: 'home route' });
 });
+
+// GET - /posts - grazins visus postus
+
+// GET - posts/dates - grazins visas postu datas masyve
 
 // app Listen
 app.listen(port, () => {
