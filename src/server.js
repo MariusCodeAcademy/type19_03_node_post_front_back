@@ -22,7 +22,7 @@ const postsArr = [
   {
     id: 3,
     title: 'Post 3',
-    content: 'Body of post 3',
+    content: 'Body of buble post 3',
     date: '2020-01-03',
   },
   {
@@ -60,6 +60,8 @@ app.get('/', (req, res) => {
 app.get('/posts', (req, res) => {
   res.json(postsArr);
 });
+
+// GET /posts/search?q='buble' - grazina visus postu kuriu content texte yra reiskme buble
 
 // GET - /posts/2 - grazins post su id 5
 // ?id=5 === req.query

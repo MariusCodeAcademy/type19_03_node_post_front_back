@@ -3,6 +3,9 @@ GET http://localhost:3000/
 ### Get all posts
 GET http://localhost:3000/posts
 
+### Search
+GET http://localhost:3000/posts/search?q='buble'
+
 ### Get signle post
 GET http://localhost:3000/posts/5
 
