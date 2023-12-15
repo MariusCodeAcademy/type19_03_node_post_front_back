@@ -60,7 +60,26 @@ app.get('/', (req, res) => {
 app.get('/posts', (req, res) => {
   res.json(postsArr);
 });
-// GET - /posts?id=5 - grazins post su id 5
+
+// GET - /posts/2 - grazins post su id 5
+// ?id=5 === req.query
+// /2 - dynaminis parametras req.params
+app.get('/posts/:postId', (req, res) => {
+  console.log('req.params ===', req.params);
+  const postId = +req.params.postId;
+  console.log('postId ===', postId);
+  // surasti posta musu postArr kurio id === postId
+  const found = postsArr.find((pObj) => pObj.id === postId);
+  console.log('found ===', found);
+  // jei neradom
+  if (found === undefined) {
+    res.status(404).json({
+      msg: `Post with id: ${postId} was not found`,
+    });
+    return;
+  }
+  res.json(found);
+});
 
 // GET - posts/dates - grazins visas postu datas masyve
 app.get('/posts/dates', (req, res) => {

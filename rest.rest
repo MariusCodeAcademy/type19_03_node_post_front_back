@@ -3,6 +3,9 @@ GET http://localhost:3000/
 ### Get all posts
 GET http://localhost:3000/posts
 
+### Get signle post
+GET http://localhost:3000/posts/5
+
 ### get dates
 GET http://localhost:3000/posts/dates
 
