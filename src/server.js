@@ -61,7 +61,18 @@ app.get('/posts', (req, res) => {
   res.json(postsArr);
 });
 
-// GET /posts/search?q='buble' - grazina visus postu kuriu content texte yra reiskme buble
+// GET /posts/search?q=buble - grazina visus postu kuriu content texte yra reiskme buble
+app.get('/posts/search', (request, response) => {
+  console.log('request.query ===', request.query);
+  // pasiimiti q reiksme is query
+  const queryTerm = request.query.q;
+  console.log('queryTerm ===', queryTerm); // buble
+  // ieskoti postsArr content dalyje q reikmes
+
+  // jei randam atrikti tuos elementus
+  // grazinti ka radom
+  response.json('you are in a search');
+});
 
 // GET - /posts/2 - grazins post su id 5
 // ?id=5 === req.query
