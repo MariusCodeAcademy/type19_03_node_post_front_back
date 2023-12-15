@@ -32,6 +32,10 @@ function addNewPost(newPostObj) {
     .then((response) => response.json())
     .then((postsArr) => {
       console.log(postsArr);
+      renderPosts(postsArr);
+    })
+    .catch((error) => {
+      console.warn('ivyko klaida:', error);
     });
 }
 
